@@ -1,3 +1,9 @@
+# for this project
+node_modules/
+
+# put any editor ingores here
+.vscode
+
 # Compiled class file
 *.class
 
