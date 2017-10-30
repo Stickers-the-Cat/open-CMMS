@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+		"target": "es5",
+        "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "www/assets/js/game.js",
+        "sourceMap": false,
+        "lib": ["dom", "es6"]
+    },
+    "include": [
+        "typescript/**/*"
+    ]
+}
