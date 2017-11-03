@@ -19,7 +19,7 @@ class core {
 	/**
 	 * holds the view class
 	 */
-	//view:view = new view();
+	template:template = new template( this );
 	/**
 	 * 
 	 */
@@ -28,6 +28,7 @@ class core {
 		constructor() {
 	
 			document.addEventListener('deviceready', this.init.bind(this), false);
+			this.init();
 		}
 	
 		/**
@@ -35,7 +36,7 @@ class core {
 		 */
 		private init() {
 	
-			//this.load_activity( activity_launch, {} );
+			this.load_activity( activity_launch, {} );
 		}
 	
 		/**

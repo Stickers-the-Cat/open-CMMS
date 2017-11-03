@@ -10,20 +10,17 @@ const merge = require('merge2') // https://www.npmjs.com/package/merge2
 let locations = {
 
 	scripts: [
-		'./typescript/engine/**/*.ts',
-		'./typescript/declare.ts'
-	],
-
-	scss: [
-		'./sass/**/*.scss'
-	],
-
-	js: [
-		'./assets/js/**/*.js'
-	],
-
-	index: [
-		'./index.html'
+		'./src/typescript/activities/**/*.ts',
+		'./src/typescript/engine/**/*.ts',
+		'./src/typescript/declare.ts'
+	], scss: [
+		'./src/sass/**/*.scss'
+	], js: [
+		'./src/assets/js/**/*.js'
+	], index: [
+		'./src/index.html'
+	], template: [
+		'./src/templates/**/*'
 	]
 }
 
@@ -48,16 +45,31 @@ gulp.task('build_scss', function () {
 });
 
 
-gulp.task('copy-js', function() {
+gulp.task('copy_js', function() {
 	
 		gulp.src(locations.js)
 		.pipe(gulp.dest('../build/public/assets/js'));
 	});
 
-gulp.task('copy-index', function() {
+gulp.task('copy_index', function() {
 
 	gulp.src(locations.index)
 	.pipe(gulp.dest('../build/public/'));
 });
 
-gulp.task('default', ['build_ts', 'build_scss', 'copy-js', 'copy-index']);
+gulp.task('copy_templates', function() {
+
+	gulp.src(locations.template)
+	.pipe(gulp.dest('../build/public/assets/templates/'));
+});
+
+/** 
+ * this is for my localhost due to chrome debugging not working
+ */
+gulp.task('copy_to_wamp', function(){
+
+	gulp.src('../build/public/**/*')
+	.pipe(gulp.dest('C:\\wamp64\\www\\open-cmms'));
+});
+
+gulp.task('default', ['build_ts', 'build_scss', 'copy_js', 'copy_index', 'copy_templates', 'copy_to_wamp']);
